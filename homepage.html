@@ -4,9 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <link rel="stylesheet" href="homepage.css"/>
+    <title>Homepage</title>
 </head>
 <body>
-    
+    <div class="conteneur">
+        <div class="nav-bar">
+            <div class="gauche">
+                <div class="nav-link active-nav-link">
+                    <a href="homepage.html">HOME</a>
+                </div>
+                <div class="nav-link">
+                    <a href="gamepage.html">START A GAME</a>
+                </div>
+                <div class="nav-link">
+                    <a href="">MAKE YOUR OWN QIZZ</a>
+                </div>
+                <div class="nav-link ">
+                    <a href="aboutuspage.html">ABOUT US</a>
+                </div>
+
+                
+            </div>
+
+            <div class="droite">
+                <div class="text">
+                    <div>Quiz Histoire</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+        <h1>Choisir un thème</h1>
+
+            <div class="menudesthemes"> 
+                    <div class="item">
+                        <div class="item-img-background" style="background-image:url(images/item1.jpg)"></div>
+                        <div class="item-text">Antiquité</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-img-background" style="background-image:url(images/item2.jpg)"></div>
+                        <div class="item-text">Moyenne Age</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img-background" style="background-image:url(images/item3.jpg)"></div>
+                        <div class="item-text">Renaissance</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img-background" style="background-image:url(images/item4.jpg)"></div>
+                        <div class="item-text">Rois de France</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img-background" style="background-image:url(images/item5.jpg)"></div>
+                        <div class="item-text">Révolution</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img-background" style="background-image:url(images/item6.jpg)"></div>
+                        <div class="item-text">Grande Guerre</div>
+                    </div>
+                            
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footergauche"> Reseaux sociaux </div>
+            <div class="footerdroite">© 2019 Ramanatoanina_project  Diab X Clerc</div>
+        </div>
+
+
+    </div>
 </body>
+<script>
+    const item = document.querySelectorAll('.item') // on fait une selection de chaque categorie du menu
+    item.forEach(item => {
+        item.addEventListener('mouseover',() =>{ // evenement passage de souris
+            item.childNodes[1].classList.add('img-darken'); // lance le css img-darken
+        })
+
+        item.addEventListener('mouseout',() =>{ // meme chose: on l'enleve lorsque la souris disparait 
+            item.childNodes[1].classList.remove('img-darken');
+        })
+    })
+
+</script>
 </html>
