@@ -82,6 +82,7 @@ body
 {
     position: relative;
     padding: 10px;
+    min-width: 99%;
 }
 
 .item-img-background
