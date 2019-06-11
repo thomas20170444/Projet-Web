@@ -43,9 +43,9 @@
                     <h3>Testez vos connaissances</h3>
                     <p>Quiz de 10 questions</p>
                 
-                    <a href="gamepage.html">
-                        <input class="runquiz" type="button" value="PLAY">
-                    </a>
+                    
+                        <input class="runquiz" onclick="login()" type="button" value="PLAY">
+                    
                 </div>
             </div>
         </div>
@@ -53,5 +53,19 @@
         <div class="footer">© 2019 Ramanatoanina_project  Diab X Clerc</div>
     
     </div>
+
+    <script>
+
+
+        var pseudo;
+        function login()
+        {
+            pseudo = prompt("Saisir un pseudo");
+           alert("Bienvenu " + pseudo);
+           href= revolution.html;
+        }
+    
+    
+    </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 body
 {
     margin: 0px;
+    background-color: #f8f6f0;
 }
 
 .conteneur
@@ -219,7 +220,7 @@ body
 }
 
 
-/* gamepage CSS */
+/* gamepage CSS 
 
 
 section
@@ -233,13 +234,14 @@ section
 	padding: 1%;
 	display: flex;
 	flex-flow: row wrap;
-	overflow: hidden; /* pas de débordement de bloc */
+	overflow: hidden; pas de débordement de bloc 
 }
 .question
 {
 	background-color: rgba(255,255,255,1);
-	/*border-top-left-radius : 30px;*/
-	/*border-top-right-radius : 30px;*/
+    /*border-top-left-radius : 30px;
+    
+	/*border-top-right-radius : 30px;
 	border-radius: 10px;
 	padding: 1%;
 	margin-bottom: 3%;
@@ -305,3 +307,79 @@ section
 	text-align: center;
 }
 
+*/
+
+/* gamepage v2*/
+
+ @import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+
+section
+{
+    background-color: rgb(198, 203, 209);
+    font-family: 'Work Sans', sans-serif;
+    color: #333;
+    font-weight: 300;
+	width: 75%;
+    height: auto;
+    text-align: center;
+	border-radius: 30px;
+	margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+
+}
+
+.question{
+  font-size: 30px;
+  color:rgb(74, 145, 233);
+  background-color: rgba(244, 245, 238, 0.993); 
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  margin: auto;
+}
+.answers {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  display: inline-block;
+  font-size: 20px;
+}
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+button{
+  font-family: 'Work Sans', sans-serif;
+    font-size: 22px;
+    background-color: #279;
+    color: #fff;
+    border: 0px;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+button:hover{
+    background-color: #38a;
+}
+
+
+.slide{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 220px;
+  margin-top: 40px;
+}

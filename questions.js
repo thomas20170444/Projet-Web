@@ -34,7 +34,7 @@ const myQuestions = [
       c: "La prison de la Bastille"
     },
     correctAnswer: "c"
-  }
+  },
   {
     question: "Quel révolutionnaire eut pour derniers mots : '"'j"'"emporte avec moi les derniers lambeaux de la monarchie'"'?",
     answers: {
@@ -43,7 +43,7 @@ const myQuestions = [
       c: "Roberpierre"
     },
     correctAnswer: "b"
-  }
+  },
   {
     question: "Quel fut le premier débat qui mena à l'apparition du clivage droite gauche en France ?",
     answers: {
