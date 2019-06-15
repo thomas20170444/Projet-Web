@@ -15,7 +15,7 @@
                     <a href="homepage.html">HOME</a>
                 </div>
                 <div class="nav-link active-nav-link">
-                    <a href="gamepage.html">START A GAME</a>
+                    <a href="revolution.html">START A GAME</a>
                 </div>
                 <div class="nav-link">
                     <a href="">MAKE YOUR OWN QIZZ</a>
@@ -39,9 +39,12 @@
         <div class="quiz-container">
           <div id="quiz"></div>
         </div>
-        <button id="previous">Previous Question</button>
-        <button id="next">Next Question</button>
-        <button id="submit">Submit Quiz</button>
+        <button id="previous">Précédent</button>
+        <button id="next">Suivant</button>
+        <button id="submit">Valider</button>
+        <a href="homepage.html">
+        <button id="home">Accueil</button>
+        </a>
         <div id="results"></div>
         </section>
             
@@ -55,7 +58,7 @@
       const myQuestions = [
       {
         question: "Où le célèbre révolutionnaire Marat fut assassiné ?",
-        answers: {
+        reponses: {
           a: "dans sa beignoire",
           b: "dans son lit",
           c: "à l'assemblée"
@@ -64,7 +67,7 @@
       },
       {
         question: "Qui appelle-t-on le fils de la révolution ?",
-        answers: {
+        reponses: {
           a: "Louis XVII",
           b: "Napoléon Ier",
           c: "Danton"
@@ -73,7 +76,7 @@
       },
       {
         question: "Quand fut proclammée la première République ?",
-        answers: {
+        reponses: {
           a: "21 septembre 1792",
           b: "4 aout 1789",
           c: "14 juillet 1789"
@@ -82,7 +85,7 @@
       },
       {
         question: "Quel lieu parisien fut entièrement détruit par les révolutionnaires ?",
-        answers: {
+        reponses: {
           a: "Le pont Neuf",
           b: "Le palais des tuilleries",
           c: "La prison de la Bastille"
@@ -91,7 +94,7 @@
       },
       {
         question: "Quel fut le premier débat qui mena à l'apparition du clivage droite gauche en France ?",
-        answers: {
+        reponses: {
           a: "le droit de véto du roi",
           b: "la mort du roi",
           c: "l'imposition des nobles"
@@ -100,7 +103,7 @@
       },
       {
         question: "Où fut emprisonnée la famille royale ?",
-        answers: {
+        reponses: {
           a: "dans la prision de la bastille",
           b: "dans la prison du temple",
           c: "au palais de justice"
@@ -109,7 +112,7 @@
       },
       {
         question: "Qui a inventé la guillotine ?",
-        answers: {
+        reponses: {
           a: "Joseph Ignace Guillotin",
           b: "Louis XVI",
           c: "L'abbé Syes"
@@ -118,7 +121,7 @@
       },
       {
         question: "Quel révolutionnaire eut pour derniers mots : ' j'emporte avec moi les derniers lambeaux de la monarchie '? ",
-        answers: {
+        reponses: {
           a: "Danton",
           b: "Mirabeau",
           c: "Roberpierre"
@@ -128,68 +131,49 @@
       ];
     
       function buildQuiz() {
-        // we'll need a place to store the HTML output
         const output = [];
-    
-        // for each question...
         myQuestions.forEach((currentQuestion, questionNumber) => {
-          // we'll want to store the list of answer choices
-          const answers = [];
-    
-          // and for each available answer...
-          for (letter in currentQuestion.answers) {
-            // ...add an HTML radio button
-            answers.push(
+          const reponses = [];
+
+          for (letter in currentQuestion.reponses) {
+            reponses.push(
               `<label>
                  <input type="radio" name="question${questionNumber}" value="${letter}">
                   ${letter} :
-                  ${currentQuestion.answers[letter]}
+                  ${currentQuestion.reponses[letter]}
                </label>`
             );
           }
-    
-          // add this question and its answers to the output
+
           output.push(
             `<div class="slide">
                <div class="question"> ${currentQuestion.question} </div>
-               <div class="answers"> ${answers.join("")} </div>
+               <div class="reponses"> ${reponses.join("")} </div>
              </div>`
           );
         });
     
-        // finally combine our output list into one string of HTML and put it on the page
         quizContainer.innerHTML = output.join("");
       }
     
       function showResults() {
-        // gather answer containers from our quiz
-        const answerContainers = quizContainer.querySelectorAll(".answers");
-    
-        // keep track of user's answers
+        const answerContainers = quizContainer.querySelectorAll(".reponses");
         let numCorrect = 0;
-    
-        // for each question...
+
         myQuestions.forEach((currentQuestion, questionNumber) => {
-          // find selected answer
           const answerContainer = answerContainers[questionNumber];
           const selector = `input[name=question${questionNumber}]:checked`;
           const userAnswer = (answerContainer.querySelector(selector) || {}).value;
     
-          // if answer is correct
           if (userAnswer === currentQuestion.correctAnswer) {
-            // add to the number of correct answers
             numCorrect++;
-    
-            // color the answers green
             answerContainers[questionNumber].style.color = "lightgreen";
-          } else {
-            // if answer is wrong or blank
-            // color the answers red
+          } 
+          else {
             answerContainers[questionNumber].style.color = "red";
           }
         });
-    
-        // show number of correct answers out of total
+  
         resultsContainer.innerHTML = ` Vous avez ${numCorrect} réponses correctes sur ${myQuestions.length}`;
       }
     
@@ -207,9 +191,13 @@
         if (currentSlide === slides.length - 1) {
           nextButton.style.display = "none";
           submitButton.style.display = "inline-block";
+          homeButton.style.display = "inline-block";
+
         } else {
           nextButton.style.display = "inline-block";
           submitButton.style.display = "none";
+          homeButton.style.display = "none";
+
         }
       }
     
@@ -224,8 +212,8 @@
       const quizContainer = document.getElementById("quiz");
       const resultsContainer = document.getElementById("results");
       const submitButton = document.getElementById("submit");
+      const homeButton = document.getElementById("home");
     
-      // display quiz right away
       buildQuiz();
     
       const previousButton = document.getElementById("previous");
@@ -235,11 +223,12 @@
     
       showSlide(0);
     
-      // on submit, show results
       submitButton.addEventListener("click", showResults);
       previousButton.addEventListener("click", showPreviousSlide);
       nextButton.addEventListener("click", showNextSlide);
+
     })();
+
     </script>
 
 
