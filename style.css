@@ -201,6 +201,38 @@ body
     margin: auto;    
 }
 
+.runpage-img-2 img /*  pour ajuster les images trop grandes (mauvais format)*/
+{
+    width: 45%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+
+.runpage-img-3 img 
+{
+    width: 35%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+
+.runpage-img-4 img 
+{
+    width: 55%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+.runpage-img-5 img 
+{
+    width: 65%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+
+
 
 .runpagebloc
 {
