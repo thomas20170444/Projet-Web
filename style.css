@@ -164,18 +164,19 @@ body
     margin-top: 4em;
     margin-bottom: 4em;
 }
-
+.profile-txt
+{
+    text-align: center;
+    margin: 2em;
+}
+/*
 .profile-img
 {
     margin: 2em;
     margin-left: auto;
     margin-right: auto;
 }
-.profile-txt
-{
-    text-align: center;
-    margin: 2em;
-}
+
 
 .profile-img img
 {
@@ -189,7 +190,7 @@ body
     margin-left: auto;
     margin-right: auto;
 }
-
+*/
 
 /*Run gamepage page CSS */
 
