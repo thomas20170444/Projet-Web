@@ -63,6 +63,14 @@ body
 {
     color: black;
 }
+#logo
+{
+    font-size: 110%;
+    color: white;
+    background-color: rgb(112, 25, 34);
+    padding: 6px;
+    box-shadow: 2px 2px 5px grey;
+}
 
 /* contenu de la page */
 
@@ -185,7 +193,7 @@ body
 
 /*Run gamepage page CSS */
 
-.antiquité-img img
+.runpage-img img
 {
     width: 75%;
     margin: auto;
@@ -193,8 +201,40 @@ body
     margin: auto;    
 }
 
+.runpage-img-2 img /*  pour ajuster les images trop grandes (mauvais format)*/
+{
+    width: 45%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
 
-.antiquitébloc
+.runpage-img-3 img 
+{
+    width: 35%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+
+.runpage-img-4 img 
+{
+    width: 55%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+.runpage-img-5 img 
+{
+    width: 65%;
+    margin: auto;
+    border-radius: 30px;
+    margin: auto;    
+}
+
+
+
+.runpagebloc
 {
     display: grid;
     grid-template-columns: 1fr 1fr;

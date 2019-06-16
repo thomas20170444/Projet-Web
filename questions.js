@@ -36,7 +36,7 @@ const myQuestions = [
     correctAnswer: "c"
   },
   {
-    question: "Quel révolutionnaire eut pour derniers mots : '"'j"'"emporte avec moi les derniers lambeaux de la monarchie'"'?",
+    question: "Quel révolutionnaire eut pour derniers mots : j'emporte avec moi les derniers lambeaux de la monarchie?",
     answers: {
       a: "Danton",
       b: "Mirabeau",
@@ -52,7 +52,7 @@ const myQuestions = [
       c: "l'imposition des nobles"
     },
     correctAnswer: "a"
-  }
+  },
   {
     question: "Où fut emprisonnée la famille royale ?",
     answers: {
@@ -61,7 +61,25 @@ const myQuestions = [
       c: "au palais de justice"
     },
     correctAnswer: "b"
-  }
+  },
+  {
+    question: "Qui a inventé la guillotine ?",
+    answers: {
+      a: "Joseph Ignace Guillotin",
+      b: "Louis XVI",
+      c: "L'abbé Syes"
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: "Où fut emprisonnée la famille royale ?",
+    answers: {
+      a: "dans la prision de la bastille",
+      b: "dans la prison du temple",
+      c: "au palais de justice"
+    },
+    correctAnswer: "b"
+  },
   {
     question: "Qui a inventé la guillotine ?",
     answers: {
