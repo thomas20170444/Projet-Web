@@ -15,12 +15,12 @@
                     <a href="homepage.html">HOME</a>
                 </div>
                 <div class="nav-link active-nav-link">
-                    <a href="gamepage.html">START A GAME</a>
+                    <a href="revolution.html">START A GAME</a>
                 </div>
                 <div class="nav-link">
                     <a href="">MAKE YOUR OWN QIZZ</a>
                 </div>
-                <div class="nav-link ">
+                <div class="nav-link">
                     <a href="aboutuspage.html">ABOUT US</a>
                 </div>
 
@@ -29,36 +29,208 @@
 
             <div class="droite">
                 <div class="text">
-                    <div>Quiz Histoire</div>
+                    <div id="logo">Quiz Histoire</div>
                 </div>
             </div>
         </div>
         
-        <div class="AntiquitéContent">
-            <div class="antiquitébloc">
-                <div class="antiquité-img">
-                    <img src="images/item1.jpg">
-                </div>
-                <div class="antiquité-txt">
-                    <h3>Testez vos connaissances</h3>
-                    <p>Quiz de 10 questions</p>
-                
-                        <a href="revolution.html">
-                        <input class="runquiz" type="button" value="PLAY">
-                        </a>
-                </div>
-            </div>
+        <br>
+        <section>
+        <div class="quiz-container">
+          <div id="quiz"></div>
         </div>
-
+        <button id="previous">Précédent</button>
+        <button id="next">Suivant</button>
+        <button id="submit">Valider</button>
+        <a href="homepage.html">
+        <button id="home">Accueil</button>
+        </a>
+        <div id="results"></div>
+        </section>
+            
+    
         <div class="footer">© 2019 Ramanatoanina_project  Diab X Clerc</div>
     
     </div>
 
     <script>
-
-
+        (function() {
+      const myQuestions = [
+      {
+        question: "Où le célèbre révolutionnaire Marat fut assassiné ?",
+        reponses: {
+          a: "dans sa beignoire",
+          b: "dans son lit",
+          c: "à l'assemblée"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "Qui appelle-t-on le fils de la révolution ?",
+        reponses: {
+          a: "Louis XVII",
+          b: "Napoléon Ier",
+          c: "Danton"
+        },
+        correctAnswer: "b"
+      },
+      {
+        question: "Quand fut proclammée la première République ?",
+        reponses: {
+          a: "21 septembre 1792",
+          b: "4 aout 1789",
+          c: "14 juillet 1789"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "Quel lieu parisien fut entièrement détruit par les révolutionnaires ?",
+        reponses: {
+          a: "Le pont Neuf",
+          b: "Le palais des tuilleries",
+          c: "La prison de la Bastille"
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "Quel fut le premier débat qui mena à l'apparition du clivage droite gauche en France ?",
+        reponses: {
+          a: "le droit de véto du roi",
+          b: "la mort du roi",
+          c: "l'imposition des nobles"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "Où fut emprisonnée la famille royale ?",
+        reponses: {
+          a: "dans la prision de la bastille",
+          b: "dans la prison du temple",
+          c: "au palais de justice"
+        },
+        correctAnswer: "b"
+      },
+      {
+        question: "Qui a inventé la guillotine ?",
+        reponses: {
+          a: "Joseph Ignace Guillotin",
+          b: "Louis XVI",
+          c: "L'abbé Syes"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "Quel révolutionnaire eut pour derniers mots : ' j'emporte avec moi les derniers lambeaux de la monarchie '? ",
+        reponses: {
+          a: "Danton",
+          b: "Mirabeau",
+          c: "Roberpierre"
+        },
+        correctAnswer: "b"
+      }
+      ];
     
+      function buildQuiz() {
+        const output = [];
+        myQuestions.forEach((currentQuestion, questionNumber) => {
+          const reponses = [];
+
+          for (letter in currentQuestion.reponses) {
+            reponses.push(
+              `<label>
+                 <input type="radio" name="question${questionNumber}" value="${letter}">
+                  ${letter} :
+                  ${currentQuestion.reponses[letter]}
+               </label>`
+            );
+          }
+
+          output.push(
+            `<div class="slide">
+               <div class="question"> ${currentQuestion.question} </div>
+               <div class="reponses"> ${reponses.join("")} </div>
+             </div>`
+          );
+        });
     
+        quizContainer.innerHTML = output.join("");
+      }
+    
+      function showResults() {
+        const answerContainers = quizContainer.querySelectorAll(".reponses");
+        let numCorrect = 0;
+
+        myQuestions.forEach((currentQuestion, questionNumber) => {
+          const answerContainer = answerContainers[questionNumber];
+          const selector = `input[name=question${questionNumber}]:checked`;
+          const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+    
+          if (userAnswer === currentQuestion.correctAnswer) {
+            numCorrect++;
+            answerContainers[questionNumber].style.color = "lightgreen";
+          } 
+          else {
+            answerContainers[questionNumber].style.color = "red";
+          }
+        });
+  
+        resultsContainer.innerHTML = ` Vous avez ${numCorrect} réponses correctes sur ${myQuestions.length}`;
+      }
+    
+      function showSlide(n) {
+        slides[currentSlide].classList.remove("active-slide");
+        slides[n].classList.add("active-slide");
+        currentSlide = n;
+        
+        if (currentSlide === 0) {
+          previousButton.style.display = "none";
+        } else {
+          previousButton.style.display = "inline-block";
+        }
+        
+        if (currentSlide === slides.length - 1) {
+          nextButton.style.display = "none";
+          submitButton.style.display = "inline-block";
+          homeButton.style.display = "inline-block";
+
+        } else {
+          nextButton.style.display = "inline-block";
+          submitButton.style.display = "none";
+          homeButton.style.display = "none";
+
+        }
+      }
+    
+      function showNextSlide() {
+        showSlide(currentSlide + 1);
+      }
+    
+      function showPreviousSlide() {
+        showSlide(currentSlide - 1);
+      }
+    
+      const quizContainer = document.getElementById("quiz");
+      const resultsContainer = document.getElementById("results");
+      const submitButton = document.getElementById("submit");
+      const homeButton = document.getElementById("home");
+    
+      buildQuiz();
+    
+      const previousButton = document.getElementById("previous");
+      const nextButton = document.getElementById("next");
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+    
+      showSlide(0);
+    
+      submitButton.addEventListener("click", showResults);
+      previousButton.addEventListener("click", showPreviousSlide);
+      nextButton.addEventListener("click", showNextSlide);
+
+    })();
+
     </script>
+
+
 </body>
 </html>
